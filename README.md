@@ -1,4 +1,4 @@
-# Project 3: Around The world!
+# Project 3: Around The U.S!
 
 This is the third project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on a figma design brief.
 
