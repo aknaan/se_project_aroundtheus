@@ -1,3 +1,15 @@
+@keyframes button {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 85%;
+  }
+  100% {
+    opacity: 70%;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -38,4 +50,8 @@
   width: 21px;
   height: 18px;
   border: none;
+}
+
+.card__like-button:hover {
+  cursor: pointer;
 }

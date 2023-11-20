@@ -7,3 +7,12 @@
   color: rgba(84, 84, 84, 1);
   padding-bottom: 60px;
 }
+
+@media screen and (max-width: 480px) {
+  .footer__title {
+    margin-top: 48px;
+    padding-bottom: 36px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
