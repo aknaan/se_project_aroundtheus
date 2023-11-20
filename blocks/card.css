@@ -1,15 +1,3 @@
-@keyframes button {
-  0% {
-    opacity: 100%;
-  }
-  50% {
-    opacity: 85%;
-  }
-  100% {
-    opacity: 70%;
-  }
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -17,13 +5,13 @@
 }
 
 .card__title {
-  margin: 0;
-  max-width: 220px;
+  margin-left: 20px;
+  max-width: 221px;
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
   text-align: left;
-  padding: 25px 0 25px 20px;
+  padding: 25px 0 25px 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -37,9 +25,8 @@
 
 .card__description {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #fff;
   color: #000;
   border-radius: 0 0 10px 10px;
@@ -50,8 +37,13 @@
   width: 21px;
   height: 18px;
   border: none;
+  margin-right: 29px;
 }
 
 .card__like-button:hover {
   cursor: pointer;
+  opacity: 0.6;
+  transition-property: opacity;
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in;
 }

@@ -61,6 +61,10 @@
 
 .profile__edit-button:hover {
   cursor: pointer;
+  opacity: 0.6;
+  transition-property: opacity;
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in;
 }
 
 .profile__add-button {
@@ -74,6 +78,10 @@
 
 .profile__add-button:hover {
   cursor: pointer;
+  opacity: 0.6;
+  transition-property: opacity;
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in;
 }
 
 @media screen and (max-width: 778px) {
@@ -110,6 +118,7 @@
     line-height: 27px;
     text-align: center;
     margin-top: 30px;
+    max-width: 260px;
   }
 
   .profile__description {
@@ -117,6 +126,7 @@
     text-align: center;
     margin: 14px 0 36px;
     font-size: 14px;
+    max-width: 270px;
   }
 
   .profile__add-button {
