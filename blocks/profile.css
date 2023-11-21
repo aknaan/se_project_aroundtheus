@@ -87,6 +87,9 @@
 @media screen and (max-width: 778px) {
   .profile__add-button {
     width: 50px;
+    transition-property: width;
+    transition-duration: 1.5s;
+    transition-timing-function: ease-in;
   }
 
   .profile__header {
@@ -132,6 +135,7 @@
   .profile__add-button {
     margin: 0;
     width: 100%;
+    max-width: 282px;
   }
 
   .profile__edit-button {
