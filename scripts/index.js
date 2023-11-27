@@ -36,3 +36,17 @@ const initialCards = [
   cardData5,
   cardData6,
 ];
+
+function editProfile() {
+  modal.classList.add("modal__opened");
+}
+
+function closeEditModal() {
+  modal.classList.remove("modal__opened");
+}
+
+let modal = document.querySelector(".modal");
+let edit = document.querySelector(".profile__edit-button");
+edit.addEventListener("click", editProfile);
+let closeButton = document.querySelector(".modal__close-button");
+closeButton.addEventListener("click", closeEditModal);

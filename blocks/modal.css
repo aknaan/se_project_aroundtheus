@@ -78,6 +78,13 @@
   cursor: pointer;
 }
 
+.modal__button:hover {
+  opacity: 0.8;
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
 .modal__close-button {
   background: url(../images/CloseIcon.svg);
   background-color: transparent;
@@ -90,6 +97,13 @@
   left: calc(100% + 5px);
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.modal__close-button:hover {
+  opacity: 0.6;
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
 }
 
 .modal__opened {
