@@ -122,6 +122,8 @@
 @media screen and (max-width: 320px) {
   .modal__container {
     padding: 25px 22px;
+    max-width: 282px;
+    width: 100%;
   }
 
   .modal__header {
@@ -146,6 +148,7 @@
 
   .modal__button {
     max-width: 238px;
+    width: 100%;
     height: 46px;
     line-height: 18px;
   }
