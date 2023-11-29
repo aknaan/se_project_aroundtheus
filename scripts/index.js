@@ -39,10 +39,14 @@ const initialCards = [
 
 let modal = document.querySelector(".modal");
 let edit = document.querySelector(".profile__edit-button");
+let modalNameInput = modal.querySelector(".modal__name");
+let modalAboutMeInput = modal.querySelector(".modal__description");
 edit.addEventListener("click", () => {
   modal.classList.add("modal__opened");
 });
 let closeButton = document.querySelector(".modal__close-button");
 closeButton.addEventListener("click", () => {
   modal.classList.remove("modal__opened");
+  modalNameInput.value = "";
+  modalAboutMeInput.value = "";
 });
