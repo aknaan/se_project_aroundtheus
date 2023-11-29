@@ -37,16 +37,33 @@ const initialCards = [
   cardData6,
 ];
 
-let modal = document.querySelector(".modal");
-let edit = document.querySelector(".profile__edit-button");
-let modalNameInput = modal.querySelector(".modal__name");
-let modalAboutMeInput = modal.querySelector(".modal__description");
+// creating the elements that needs to be manipulated
+const modal = document.querySelector(".modal");
+const edit = document.querySelector(".profile__edit-button");
+const modalNameInput = modal.querySelector(".modal__name");
+const modalAboutMeInput = modal.querySelector(".modal__description");
+const modalSaveButton = modal.querySelector(".modal__button");
+const profileHeader = document.querySelector(".profile__header");
+const closeButton = document.querySelector(".modal__close-button");
+const profileDescription = document.querySelector(".profile__description");
+
+// open the edit profile modal
+modalSaveButton.addEventListener("click", handleSubmit);
 edit.addEventListener("click", () => {
   modal.classList.add("modal__opened");
 });
-let closeButton = document.querySelector(".modal__close-button");
+
+// closing the edit modal ( and making sure that the inputs value will reset )
 closeButton.addEventListener("click", () => {
   modal.classList.remove("modal__opened");
-  modalNameInput.value = "";
-  modalAboutMeInput.value = "";
+  modalNameInput.value = profileHeader.innerHTML;
+  modalAboutMeInput.value = profileDescription.innerHTML;
 });
+
+//prevent full page refresh after submit & rendring the new values to the profile
+function handleSubmit(e) {
+  e.preventDefault();
+  profileHeader.innerHTML = modalNameInput.value;
+  profileDescription.innerHTML = modalAboutMeInput.value;
+  modal.classList.remove("modal__opened");
+}
