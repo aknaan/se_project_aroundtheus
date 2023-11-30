@@ -1,31 +1,31 @@
 const cardData1 = {
-  name: "grand tetons national park",
-  link: "https://unsplash.com/photos/a-beautiful-view-of-a-mountain-range-with-a-lake-in-the-foreground-llbKxU0xapk",
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
 const cardData2 = {
-  name: "Hector Lake",
-  link: "https://unsplash.com/photos/body-of-water-near-forest-and-mountain-2dIC6JMb_4E",
+  name: "Lake Louise",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
 };
 
 const cardData3 = {
-  name: "guangxi",
-  link: "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-under-a-cloudy-sky-jlIfwzLSDEE",
+  name: "Bald Mountains",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
 };
 
 const cardData4 = {
-  name: "Emerald",
-  link: "https://unsplash.com/photos/a-view-of-a-lake-with-mountains-in-the-background-W-qgMo-YV08",
+  name: "Latemar",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
 };
 
 const cardData5 = {
-  name: "Valley Of The Ten Picks",
-  link: "https://unsplash.com/photos/people-riding-on-boat-on-lake-near-green-trees-and-mountains-during-daytime-nXtCxgYc57c",
+  name: "Vanoise National Park",
+  link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
 };
 
 const cardData6 = {
-  name: "Hallstatt",
-  link: "https://unsplash.com/photos/houses-near-body-of-water-and-mountain-during-daytime-LKBW3401d-0",
+  name: "Lago di Braies",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
 };
 
 const initialCards = [
@@ -37,33 +37,62 @@ const initialCards = [
   cardData6,
 ];
 
-// creating the elements that needs to be manipulated
+// elements
 const modal = document.querySelector(".modal");
-const edit = document.querySelector(".profile__edit-button");
+const profileEditButton = document.querySelector(".profile__edit-button");
 const modalNameInput = modal.querySelector(".modal__name");
 const modalAboutMeInput = modal.querySelector(".modal__description");
 const modalSaveButton = modal.querySelector(".modal__button");
 const profileHeader = document.querySelector(".profile__header");
-const closeButton = document.querySelector(".modal__close-button");
+const ProfileCloseButton = document.querySelector(".modal__close-button");
 const profileDescription = document.querySelector(".profile__description");
+
+//functions
+function closePopup() {
+  modal.classList.remove("modal__opened");
+  modalNameInput.value = profileHeader.innerHTML;
+  modalAboutMeInput.value = profileDescription.innerHTML;
+}
+
+// selecting the template
+const cardsTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
+function getCardElement(data) {
+  // cloning the template
+  const cardElement = cardsTemplate.cloneNode(true);
+  // getting from the clone our image & title and setting the attributes
+  cardImageEl = cardElement.querySelector(".card__image");
+  cardTitleEl = cardElement.querySelector(".card__title");
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  cardTitleEl.innerHTML = data.name;
+  //returning the cardElement
+  return cardElement;
+}
+
+//Event listeners
 
 // open the edit profile modal
 modalSaveButton.addEventListener("click", handleSubmit);
-edit.addEventListener("click", () => {
+profileEditButton.addEventListener("click", () => {
   modal.classList.add("modal__opened");
 });
 
 // closing the edit modal ( and making sure that the inputs value will reset )
-closeButton.addEventListener("click", () => {
-  modal.classList.remove("modal__opened");
-  modalNameInput.value = profileHeader.innerHTML;
-  modalAboutMeInput.value = profileDescription.innerHTML;
-});
+ProfileCloseButton.addEventListener("click", closePopup);
 
-//prevent full page refresh after submit & rendring the new values to the profile
+//Events handlers
+//rendring the new values to the profile
 function handleSubmit(e) {
   e.preventDefault();
   profileHeader.innerHTML = modalNameInput.value;
   profileDescription.innerHTML = modalAboutMeInput.value;
   modal.classList.remove("modal__opened");
 }
+
+const cardListEl = document.querySelector(".cards__list");
+// using the getElement function to run over all the list of elements and rendreing with prepend
+initialCards.forEach((cardData) => {
+  const cardElementCreator = getCardElement(cardData);
+  cardListEl.prepend(cardElementCreator);
+});
