@@ -49,9 +49,7 @@ const profileDescription = document.querySelector(".profile__description");
 
 //functions
 function closePopup() {
-  modal.classList.remove("modal__opened");
-  modalNameInput.value = profileHeader.innerHTML;
-  modalAboutMeInput.value = profileDescription.innerHTML;
+  modal.classList.remove("modal_opened");
 }
 
 // selecting the template
@@ -61,11 +59,11 @@ function getCardElement(data) {
   // cloning the template
   const cardElement = cardsTemplate.cloneNode(true);
   // getting from the clone our image & title and setting the attributes
-  cardImageEl = cardElement.querySelector(".card__image");
-  cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__title");
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
-  cardTitleEl.innerHTML = data.name;
+  cardTitleEl.textContent = data.name;
   //returning the cardElement
   return cardElement;
 }
@@ -73,9 +71,11 @@ function getCardElement(data) {
 //Event listeners
 
 // open the edit profile modal
-modalSaveButton.addEventListener("click", handleSubmit);
+modalSaveButton.addEventListener("click", openModal);
 profileEditButton.addEventListener("click", () => {
-  modal.classList.add("modal__opened");
+  modalNameInput.value = profileHeader.textContent;
+  modalAboutMeInput.value = profileDescription.textContent;
+  modal.classList.add("modal_opened");
 });
 
 // closing the edit modal ( and making sure that the inputs value will reset )
@@ -83,16 +83,16 @@ ProfileCloseButton.addEventListener("click", closePopup);
 
 //Events handlers
 //rendring the new values to the profile
-function handleSubmit(e) {
+function openModal(e) {
   e.preventDefault();
-  profileHeader.innerHTML = modalNameInput.value;
-  profileDescription.innerHTML = modalAboutMeInput.value;
-  modal.classList.remove("modal__opened");
+  profileHeader.textContent = modalNameInput.value;
+  profileDescription.textContent = modalAboutMeInput.value;
+  closePopup();
 }
 
 const cardListEl = document.querySelector(".cards__list");
 // using the getElement function to run over all the list of elements and rendreing with prepend
 initialCards.forEach((cardData) => {
-  const cardElementCreator = getCardElement(cardData);
-  cardListEl.prepend(cardElementCreator);
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 });
