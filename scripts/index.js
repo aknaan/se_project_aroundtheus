@@ -71,7 +71,7 @@ function getCardElement(data) {
 //Event listeners
 
 // open the edit profile modal
-modalSaveButton.addEventListener("click", openModal);
+modalSaveButton.addEventListener("click", handleProfileFormSubmit);
 profileEditButton.addEventListener("click", () => {
   modalNameInput.value = profileHeader.textContent;
   modalAboutMeInput.value = profileDescription.textContent;
@@ -83,7 +83,7 @@ profileCloseButton.addEventListener("click", closePopup);
 
 //Events handlers
 //rendring the new values to the profile
-function openModal(e) {
+function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileHeader.textContent = modalNameInput.value;
   profileDescription.textContent = modalAboutMeInput.value;
