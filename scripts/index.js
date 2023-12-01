@@ -44,7 +44,7 @@ const modalNameInput = modal.querySelector(".modal__name");
 const modalAboutMeInput = modal.querySelector(".modal__description");
 const modalSaveButton = modal.querySelector(".modal__button");
 const profileHeader = document.querySelector(".profile__header");
-const ProfileCloseButton = document.querySelector(".modal__close-button");
+const profileCloseButton = document.querySelector(".modal__close-button");
 const profileDescription = document.querySelector(".profile__description");
 
 //functions
@@ -79,7 +79,7 @@ profileEditButton.addEventListener("click", () => {
 });
 
 // closing the edit modal ( and making sure that the inputs value will reset )
-ProfileCloseButton.addEventListener("click", closePopup);
+profileCloseButton.addEventListener("click", closePopup);
 
 //Events handlers
 //rendring the new values to the profile
