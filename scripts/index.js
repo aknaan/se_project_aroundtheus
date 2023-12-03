@@ -42,7 +42,7 @@ const modal = document.querySelector(".modal");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const modalNameInput = modal.querySelector(".modal__name");
 const modalAboutMeInput = modal.querySelector(".modal__description");
-const modalSaveButton = modal.querySelector(".modal__button");
+const modalForm = modal.querySelector(".modal__form");
 const profileHeader = document.querySelector(".profile__header");
 const profileCloseButton = document.querySelector(".modal__close-button");
 const profileDescription = document.querySelector(".profile__description");
@@ -71,7 +71,7 @@ function getCardElement(data) {
 //Event listeners
 
 // open the edit profile modal
-modalSaveButton.addEventListener("click", handleProfileFormSubmit);
+modalForm.addEventListener("submit", handleProfileFormSubmit);
 profileEditButton.addEventListener("click", () => {
   modalNameInput.value = profileHeader.textContent;
   modalAboutMeInput.value = profileDescription.textContent;
